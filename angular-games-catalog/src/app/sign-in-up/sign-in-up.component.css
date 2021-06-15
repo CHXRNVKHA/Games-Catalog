@@ -13,6 +13,8 @@
 
 .sign-in-up {
   width: 20%;
+  padding: 1%;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .switch-buttons {
@@ -21,7 +23,7 @@
 
 .switch-buttons__button {
   padding: 3%;
-  padding-right: 20%;
+  padding-right: 28.7%;
   background-color: white;
   font-size: 1rem;
   color: blue;
@@ -48,7 +50,56 @@
 
 .input {
   margin-top: 1%;
-  width: 80%;
+  width: 98%;
   height: 1.6rem;
   border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.submit {
+  margin-top: 3%;
+  border: 0;
+  background-color: red;
+  color: white;
+  font-size: 0.85rem;
+  padding: 3% 6%;
+}
+
+.restore-pass {
+  margin-left: 1%;
+  text-decoration: none;
+}
+
+.restore-pass:hover {
+  text-decoration: underline;
+}
+
+.explain {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+}
+
+.social-media__item {
+  display: block;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  width: 33%;
+  padding: 3% 0;
+}
+
+.social-media__item_facebook {
+  background-color: #3b5998;
+}
+
+.social-media__item_google {
+  background-color: #db4a39;
+}
+
+.social-media__item_twitter {
+  background-color: #00acee;
 }
