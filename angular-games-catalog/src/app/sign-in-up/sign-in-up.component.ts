@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInUpComponent implements OnInit {
 
+  isSignIn: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSignIn() {
+    this.isSignIn = true;
+  }
+
+  onSignUp() {
+    this.isSignIn = false;
   }
 
 }
