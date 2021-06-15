@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="signUp">
+  <div class="sign-in-up">
     <div class="switch-buttons">
       <button
         class="switch-buttons__button"
@@ -12,15 +12,17 @@
         (click)="onSignUp()"
       >JOIN US!</button>
     </div>
-    <form class="sign">
-      <label class="input-label" for="email">Email Adress</label>
-      <br>
-      <input class="email" type="email" name="email">
-      <br>
-      <label class="input-label" for="password">Password</label>
-      <br>
-      <input class="password" type="password" name="password">
-      <br>
+    <form class="form">
+      <div class="email">
+        <label class="input-label" for="email"><b>Email Address</b></label>
+        <br>
+        <input class="input" type="email" name="email">
+      </div>
+      <div class="password">
+        <label class="input-label" for="password"><b>Password</b></label>
+        <br>
+        <input class="input" type="password" name="password">
+      </div>
       <button type="submit">Sign In</button>
     </form>
     <a class="restore-pass" href="#">Forgot Password?</a>

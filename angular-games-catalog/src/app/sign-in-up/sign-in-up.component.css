@@ -11,17 +11,17 @@
   overflow: auto;
 }
 
-.signUp {
+.sign-in-up {
   width: 20%;
 }
 
 .switch-buttons {
-
+  display: flex;
 }
 
 .switch-buttons__button {
   padding: 3%;
-  padding-right: 17%;
+  padding-right: 20%;
   background-color: white;
   font-size: 1rem;
   color: blue;
@@ -35,4 +35,20 @@
 
 .switch-buttons__button.selected {
   background-color: red;
+  color: white;
+}
+
+.email {
+  margin-top: 3%;
+}
+
+.password {
+  margin-top: 3%;
+}
+
+.input {
+  margin-top: 1%;
+  width: 80%;
+  height: 1.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
