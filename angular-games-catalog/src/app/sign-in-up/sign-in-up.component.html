@@ -13,6 +13,11 @@
       >JOIN US!</button>
     </div>
     <form class="form">
+      <div class="name" *ngIf="!isSignIn">
+        <label class="input-label" for="name"><b>Name</b></label>
+        <br>
+        <input class="input" type="text" name="name">
+      </div>
       <div class="email">
         <label class="input-label" for="email"><b>Email Address</b></label>
         <br>
@@ -23,10 +28,12 @@
         <br>
         <input class="input" type="password" name="password">
       </div>
-      <button class="submit" type="submit">Sign In</button>
-      <a class="restore-pass" href="#">Forgot Password?</a>
+      <button *ngIf="isSignIn" class="submit" type="submit">Sign In</button>
+      <button *ngIf="!isSignIn" class="submit" type="submit">Join Now</button>
+      <a *ngIf="isSignIn" class="restore-pass" href="#">Forgot Password?</a>
     </form>
-    <p class="explain">- - - - - - - - - - - - - Sign In With - - - - - - - - - - - - -</p>
+    <p *ngIf="isSignIn" class="explain">- - - - - - - - - - - - - Sign In With - - - - - - - - - - - - -</p>
+    <p *ngIf="!isSignIn" class="explain">- - - - - - - - - - - - - Register With - - - - - - - - - - - - -</p>
     <div class="social-media">
       <a class="social-media__item social-media__item_facebook" href="#">Facebook</a>
       <a class="social-media__item social-media__item_google" href="#">Google+</a>

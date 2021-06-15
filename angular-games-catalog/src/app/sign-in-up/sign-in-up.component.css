@@ -40,6 +40,10 @@
   color: white;
 }
 
+.name {
+  margin-top: 3%;
+}
+
 .email {
   margin-top: 3%;
 }
