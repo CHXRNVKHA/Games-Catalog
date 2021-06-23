@@ -1,0 +1,9 @@
+.container {
+  width: 22%;
+  border: 1px solid;
+}
+
+.description {
+  word-wrap: break-word;
+  word-break: break-all;
+}
