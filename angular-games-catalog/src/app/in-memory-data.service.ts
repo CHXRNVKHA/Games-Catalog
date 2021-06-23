@@ -8,7 +8,14 @@ import { Game } from './game';
 export class InMemoryDataService {
   createDb() {
     const games = [
-      { id: 11, name: 'Uncharted',  date:'2016 May 10', rating: 93.3, desctiption: 'desc', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
+      { id: 11, name: 'Uncharted',  date:'2016 May 10', rating: 94.4, desctiption: 'desc', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
+      { id: 11, name: 'Uncharted',  date:'2016 May 10', rating: 94.4, desctiption: 'desc', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
+      { id: 11, name: 'Uncharted',  date:'2016 May 10', rating: 94.4, desctiption: 'desc', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
+      { id: 11, name: 'Uncharted',  date:'2016 May 10', rating: 94.4, desctiption: 'desc', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
+      { id: 11, name: 'Uncharted',  date:'2016 May 10', rating: 94.4, desctiption: 'desc', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
+      { id: 11, name: 'Uncharted',  date:'2016 May 10', rating: 94.4, desctiption: 'desc', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
+      { id: 11, name: 'Uncharted',  date:'2016 May 10', rating: 94.4, desctiption: 'desc', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
+      { id: 11, name: 'Uncharted',  date:'2016 May 10', rating: 94.4, desctiption: 'desc', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
     ];
     return {games};
   }
