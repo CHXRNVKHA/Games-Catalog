@@ -8,6 +8,8 @@ import { ExplorePageComponent } from './explore-page/explore-page.component';
 import { AppBarComponent } from './explore-page/app-bar/app-bar.component';
 import { FiltersComponent } from './explore-page/filters/filters.component';
 import { GameCardComponent } from './explore-page/game-card/game-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { GameCardComponent } from './explore-page/game-card/game-card.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
