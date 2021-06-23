@@ -10,6 +10,8 @@ import { FiltersComponent } from './explore-page/filters/filters.component';
 import { GameCardComponent } from './explore-page/game-card/game-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
