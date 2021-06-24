@@ -1,6 +1,20 @@
-<p>app-bar works!</p>
-<nav>
-  <a routerLink="/explore">To main Page</a>
-  <br>
-  <a routerLink="/autorization">To autorize</a>
-</nav>
+<div class="container">
+  <nav class="navigation">
+    <ul class="nav-list">
+      <li class="nav-list__item">
+        <a class="nav-list__item_link" routerLink="/explore">
+          <img class="icon" src="../../../assets/images/gamepad.png" alt="gamepad" width="30px" height="30px">
+        </a>
+      </li>
+      <li class="nav-list">
+        <a class="nav-list__item_link" href="#">DISCOVERY</a>
+      </li>
+      <li class="nav-list">
+        <a class="nav-list__item_link" href="#">MY GAMES</a>
+      </li>
+    </ul>
+    <div class="autorization">
+      <a class="user-link" routerLink="/user:id">USER1</a>
+    </div>
+  </nav>
+</div>

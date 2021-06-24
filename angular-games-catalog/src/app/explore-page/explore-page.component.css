@@ -1,0 +1,15 @@
+.game-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.container {
+  margin-top: 2%;
+  width: 20%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.description {
+  word-wrap: break-word;
+  word-break: break-all;
+}
