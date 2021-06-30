@@ -12,23 +12,23 @@
         (click)="onSignUp()"
       >JOIN US!</button>
     </div>
-    <form class="form">
+    <form [formGroup]="form" class="form">
       <div class="name" *ngIf="!isSignIn">
         <label class="input-label" for="name"><b>Name</b></label>
         <br>
-        <input class="input" type="text" name="name">
+        <input class="input" type="text" name="name" formControlName="name">
       </div>
       <div class="email">
         <label class="input-label" for="email"><b>Email Address</b></label>
         <br>
-        <input class="input" type="email" name="email">
+        <input class="input" type="email" name="email" formControlName="email">
       </div>
       <div class="password">
         <label class="input-label" for="password"><b>Password</b></label>
         <br>
-        <input class="input" type="password" name="password">
+        <input class="input" type="password" name="password" formControlName="password">
       </div>
-      <button *ngIf="isSignIn" class="submit" type="submit">Sign In</button>
+      <button *ngIf="isSignIn" class="submit" type="submit" (click)="login()">Sign In</button>
       <button *ngIf="!isSignIn" class="submit" type="submit">Join Now</button>
       <a *ngIf="isSignIn" class="restore-pass" href="#">Forgot Password?</a>
     </form>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-sign-in-up',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInUpComponent implements OnInit {
 
-  isSignIn: boolean = true;
+  public isSignIn: boolean = true;
+  form:FormGroup;
 
-  constructor() { }
+  constructor (private fb:FormBuilder,
+               private authService: AuthenticationService,
+               private router: Router) {
+    
+    this.form = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+
+  }
 
   ngOnInit(): void {
   }
@@ -20,6 +33,18 @@ export class SignInUpComponent implements OnInit {
 
   onSignUp() {
     this.isSignIn = false;
+  }
+
+  login() {
+    const val = this.form.value;
+    if (val.email && val.password) {
+      this.authService.login(val.email, val.password)
+        .subscribe(() => {
+            console.log('User is logged in');
+            this.router.navigateByUrl('/');
+          }
+        );
+    }
   }
 
 }
