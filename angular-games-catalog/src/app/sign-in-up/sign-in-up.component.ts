@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-in-up',
@@ -12,11 +14,19 @@ export class SignInUpComponent implements OnInit {
 
   public isSignIn: boolean = true;
   form:FormGroup;
+  loading = false;
+  submitted = false;
+  error = '';
 
   constructor (private fb:FormBuilder,
-               private authService: AuthenticationService,
+               private authenticationService: AuthenticationService,
+               private route: ActivatedRoute,
                private router: Router) {
     
+  if (this.authenticationService.currentUserValue) { 
+    this.router.navigate(['/']);
+  }
+
     this.form = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -25,7 +35,13 @@ export class SignInUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
+
+  get f() { return this.form.controls; }
 
   onSignIn() {
     this.isSignIn = true;
@@ -35,16 +51,23 @@ export class SignInUpComponent implements OnInit {
     this.isSignIn = false;
   }
 
-  login() {
-    const val = this.form.value;
-    if (val.email && val.password) {
-      this.authService.login(val.email, val.password)
-        .subscribe(() => {
-            console.log('User is logged in');
-            this.router.navigateByUrl('/');
-          }
-        );
+  onSubmit() {
+    this.submitted = true;
+    if (this.form.invalid) {
+        return;
     }
+    this.loading = true;
+    this.authenticationService.login(this.f.username.value, this.f.password.value)
+        .pipe(first())
+        .subscribe({
+            next: () => {
+                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                this.router.navigate([returnUrl]);
+            },
+            error: error => {
+                this.error = error;
+                this.loading = false;
+            }
+        });
   }
-
 }
