@@ -28,7 +28,7 @@
         <br>
         <input class="input" type="password" name="password" formControlName="password">
       </div>
-      <button *ngIf="isSignIn" class="submit" type="submit" [disabled]="loading" (click)="login()">Sign In</button>
+      <button *ngIf="isSignIn" class="submit" type="submit" [disabled]="loading">Sign In</button>
       <button *ngIf="!isSignIn" class="submit" type="submit">Join Now</button>
       <a *ngIf="isSignIn" class="restore-pass" href="#">Forgot Password?</a>
     </form>

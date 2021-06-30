@@ -10,7 +10,12 @@ import { User } from '../../models/user';
   styleUrls: ['./app-bar.component.css']
 })
 export class AppBarComponent implements OnInit {
-  currentUser: User;
+  currentUser: User = {
+    id: -1,
+    username: 'defname',
+    firstName: 'def',
+    lastName: 'def',
+  };
 
   constructor(
     private router: Router,

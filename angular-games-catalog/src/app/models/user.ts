@@ -1,7 +1,7 @@
 export class User {
-  id: number;
-  username: string;
-  firstName: string;
-  lastName: string;
+  id: number = -1;
+  username: string = 'def';
+  firstName: string = 'def';
+  lastName: string = 'def';
   token?: string;
 }

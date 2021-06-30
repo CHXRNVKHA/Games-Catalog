@@ -13,7 +13,7 @@ import { first } from 'rxjs/operators';
 export class SignInUpComponent implements OnInit {
 
   public isSignIn: boolean = true;
-  form:FormGroup;
+  public form:FormGroup;
   loading = false;
   submitted = false;
   error = '';
@@ -23,15 +23,9 @@ export class SignInUpComponent implements OnInit {
                private route: ActivatedRoute,
                private router: Router) {
     
-  if (this.authenticationService.currentUserValue) { 
-    this.router.navigate(['/']);
-  }
-
-    this.form = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-
+    if (this.authenticationService.currentUserValue) { 
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit(): void {
@@ -54,19 +48,19 @@ export class SignInUpComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.form.invalid) {
-        return;
+      return;
     }
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.authenticationService.login(this.f.email.value, this.f.password.value)
         .pipe(first())
         .subscribe({
             next: () => {
-                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                this.router.navigate([returnUrl]);
+              const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+              this.router.navigate([returnUrl]);
             },
             error: error => {
-                this.error = error;
-                this.loading = false;
+              this.error = error;
+              this.loading = false;
             }
         });
   }
