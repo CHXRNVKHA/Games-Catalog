@@ -55,7 +55,7 @@ export class SignInUpComponent implements OnInit {
         .pipe(first())
         .subscribe({
             next: () => {
-              const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+              const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/explore';
               this.router.navigate([returnUrl]);
             },
             error: error => {

@@ -10,6 +10,7 @@ import { User } from '../../models/user';
   styleUrls: ['./app-bar.component.css']
 })
 export class AppBarComponent implements OnInit {
+  isAuth: boolean = false;
   currentUser: User = {
     id: -1,
     username: 'defname',
@@ -22,14 +23,20 @@ export class AppBarComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    if (JSON.stringify(this.currentUser) !== '{}') this.isAuth = true;
   }
 
   ngOnInit(): void {
   }
 
+  signIn() {
+    this.router.navigate(['/login']);
+  }
+
   logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    this.isAuth = false;
+    this.router.navigate(['/explore']);
   }
 
 }

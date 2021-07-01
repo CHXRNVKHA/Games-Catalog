@@ -10,12 +10,13 @@
         <a class="nav-list__item_link" href="#">DISCOVERY</a>
       </li>
       <li class="nav-list">
-        <a class="nav-list__item_link" href="#">MY GAMES</a>
+        <a *ngIf="isAuth" class="nav-list__item_link" href="#">MY GAMES</a>
       </li>
     </ul>
     <div class="autorization">
-      <a class="user-link" routerLink="/user:id">USER1</a>
+      <a *ngIf="isAuth" class="user-link" routerLink="/user:id">USER1</a>
     </div>
-    <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    <a *ngIf="isAuth" class="" (click)="logout()">Logout</a>
+    <a *ngIf="!isAuth" class="" (click)="signIn()">Login</a>
   </nav>
 </div>
