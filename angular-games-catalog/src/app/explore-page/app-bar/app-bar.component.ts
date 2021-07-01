@@ -28,14 +28,9 @@ export class AppBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signIn() {
-    this.router.navigate(['login']);
-  }
-
   logout() {
     this.authenticationService.logout();
     this.isAuth = false;
-    this.router.navigate(['explore']);
   }
 
 }
