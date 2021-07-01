@@ -21,12 +21,7 @@ export class SignInUpComponent implements OnInit {
   constructor (private fb:FormBuilder,
                private authenticationService: AuthenticationService,
                private route: ActivatedRoute,
-               private router: Router) {
-    
-    if (this.authenticationService.currentUserValue) { 
-      this.router.navigate(['/']);
-    }
-  }
+               private router: Router) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({

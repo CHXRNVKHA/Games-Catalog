@@ -14,7 +14,7 @@
       </li>
     </ul>
     <div class="autorization">
-      <a *ngIf="isAuth" class="user-link" routerLink="/user:id">USER1</a>
+      <a *ngIf="isAuth" class="user-link" routerLink="/user:id">{{currentUser.userName}}</a>
     </div>
     <a *ngIf="isAuth" class="" (click)="logout()">Logout</a>
     <a *ngIf="!isAuth" class="" (click)="signIn()">Login</a>

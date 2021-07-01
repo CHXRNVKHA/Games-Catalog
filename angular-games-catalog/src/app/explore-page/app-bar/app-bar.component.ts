@@ -13,9 +13,8 @@ export class AppBarComponent implements OnInit {
   isAuth: boolean = false;
   currentUser: User = {
     id: -1,
-    username: 'defname',
-    firstName: 'def',
-    lastName: 'def',
+    userName: 'defname',
+    email: 'defmail',
   };
 
   constructor(
@@ -23,20 +22,20 @@ export class AppBarComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    if (JSON.stringify(this.currentUser) !== '{}') this.isAuth = true;
+    if (localStorage.getItem('currentUser') !== null) this.isAuth = true;
   }
 
   ngOnInit(): void {
   }
 
   signIn() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
   }
 
   logout() {
     this.authenticationService.logout();
     this.isAuth = false;
-    this.router.navigate(['/explore']);
+    this.router.navigate(['explore']);
   }
 
 }

@@ -1,7 +1,6 @@
 export class User {
   id: number = -1;
-  username: string = 'def';
-  firstName: string = 'def';
-  lastName: string = 'def';
+  userName: string = 'def';
+  email: string = 'defmail'
   token?: string;
 }

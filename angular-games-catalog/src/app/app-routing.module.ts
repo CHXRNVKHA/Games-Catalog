@@ -4,7 +4,7 @@ import { ExplorePageComponent } from './explore-page/explore-page.component';
 import { SignInUpComponent } from './sign-in-up/sign-in-up.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/explore', pathMatch: 'full' },
   { path: 'explore', component: ExplorePageComponent },
   { path: 'login', component: SignInUpComponent }
 ];
