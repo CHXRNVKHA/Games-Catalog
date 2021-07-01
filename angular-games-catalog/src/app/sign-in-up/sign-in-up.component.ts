@@ -13,7 +13,7 @@ import { first } from 'rxjs/operators';
 export class SignInUpComponent implements OnInit {
 
   public isSignIn: boolean = true;
-  public form:FormGroup;
+  public form: FormGroup;
   loading = false;
   submitted = false;
   error = '';
@@ -25,6 +25,7 @@ export class SignInUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
+      name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
@@ -40,23 +41,48 @@ export class SignInUpComponent implements OnInit {
     this.isSignIn = false;
   }
 
+  login() {
+    this.authenticationService.login(this.f.email.value, this.f.password.value)
+    .pipe(first())
+    .subscribe({
+        next: () => {
+          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/explore';
+          this.router.navigate([returnUrl]);
+        },
+        error: error => {
+          this.error = error;
+          this.loading = false;
+        }
+    });
+  }
+
+  registry() {
+    this.authenticationService.registry(this.f.email.value, this.f.password.value, this.f.name.value)
+      .pipe(first())
+      .subscribe({
+          next: () => {
+            const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/explore';
+            this.router.navigate([returnUrl]);
+          },
+          error: error => {
+            this.error = error;
+            this.loading = false;
+          }
+      });
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }
     this.loading = true;
-    this.authenticationService.login(this.f.email.value, this.f.password.value)
-        .pipe(first())
-        .subscribe({
-            next: () => {
-              const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/explore';
-              this.router.navigate([returnUrl]);
-            },
-            error: error => {
-              this.error = error;
-              this.loading = false;
-            }
-        });
+    console.log('sub');
+    if (this.isSignIn) {
+     
+    } else {
+
+    }
+ 
   }
 }

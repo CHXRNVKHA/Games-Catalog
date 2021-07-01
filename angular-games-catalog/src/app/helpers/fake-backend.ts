@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import { User } from '../models/user';
 
 const users = [{ id: 1, userName: 'testUser1', email: 'test@gmail.com', password: 'test' }];
 
@@ -19,6 +20,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             switch (true) {
                 case url.endsWith('/users/authenticate') && method === 'POST':
                     return authenticate();
+                case url.endsWith('/users/registry') && method === 'POST':
+                    return registry();
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
                 default:
@@ -26,6 +29,18 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             }
         }
 
+        function registry() {
+            const { email, password, name } = body;
+            const user = users.find(x => x.userName === name);
+            if (user) return error('Username is already taken');
+            users.push({
+                id: users[users.length - 1].id + 1,
+                userName: name,
+                email: email,
+                password: password,
+            });
+            return ok()
+        }
 
         function authenticate() {
             const { email, password } = body;

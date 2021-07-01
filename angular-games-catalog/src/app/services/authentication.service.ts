@@ -20,13 +20,18 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(email: string, password: string) {
+    login (email: string, password: string) {
         return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { email, password })
             .pipe(map(user => {
+                console.log(JSON.stringify(user));
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.currentUserSubject.next(user);
                 return user;
             }));
+    }
+
+    registry (email:string, password: string, name: string) {
+        return this.http.post<any>(`${environment.apiUrl}/users/registry`, { email, password, name });
     }
 
     logout() {
