@@ -9,7 +9,7 @@ import { GameService } from '../services/game.service';
   styleUrls: ['./explore-page.component.css']
 })
 export class ExplorePageComponent implements OnInit {
-  games: Game[] = [];
+  public games: Game[] = [];
 
   constructor(private gameService: GameService) { }
 
@@ -17,9 +17,8 @@ export class ExplorePageComponent implements OnInit {
     this.getGames();
   }
 
-  getGames(): void {
+  public getGames(): void {
     this.gameService.getGames()
     .subscribe(games => this.games = games);
   }
-
 }

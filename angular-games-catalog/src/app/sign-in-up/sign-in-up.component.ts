@@ -14,9 +14,9 @@ export class SignInUpComponent implements OnInit {
 
   public isSignIn: boolean = true;
   public form: FormGroup;
-  loading = false;
-  submitted = false;
-  error = '';
+  public loading = false;
+  public submitted = false;
+  public error = '';
 
   constructor (private fb:FormBuilder,
                private authenticationService: AuthenticationService,
@@ -31,17 +31,17 @@ export class SignInUpComponent implements OnInit {
     });
   }
 
-  get f() { return this.form.controls; }
+  public get f() { return this.form.controls; }
 
-  onSignIn() {
+  public onSignIn(): void {
     this.isSignIn = true;
   }
 
-  onSignUp() {
+  public onSignUp(): void {
     this.isSignIn = false;
   }
 
-  login() {
+  public login(): void {
     this.authenticationService.login(this.f.email.value, this.f.password.value)
     .pipe(first())
     .subscribe({
@@ -56,7 +56,7 @@ export class SignInUpComponent implements OnInit {
     });
   }
 
-  registry() {
+  public registry(): void {
     this.authenticationService.registry(this.f.email.value, this.f.password.value, this.f.name.value)
       .pipe(first())
       .subscribe({
@@ -71,7 +71,7 @@ export class SignInUpComponent implements OnInit {
       });
   }
 
-  onSubmit() {
+  public onSubmit(): void {
     this.submitted = true;
     if (this.form.invalid) {
       return;

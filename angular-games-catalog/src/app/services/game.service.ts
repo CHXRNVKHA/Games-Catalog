@@ -21,11 +21,11 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
-  getGames(): Observable<Game[]> {
+  public getGames(): Observable<Game[]> {
     return this.http.get<Game[]>(this.gamesUrl);
   }
 
-  searchGames(term: string): Observable<Game[]> {
+  public searchGames(term: string): Observable<Game[]> {
     if (!term.trim()) {
       return of([]);
     }
