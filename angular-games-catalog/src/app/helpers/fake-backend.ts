@@ -24,8 +24,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return registry();
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
-                case url.endsWith('/games') && method === 'GET':
-                    return getUsers();
                 default:
                     return next.handle(request);
             }
