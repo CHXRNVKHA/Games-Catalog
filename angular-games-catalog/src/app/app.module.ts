@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignInUpComponent } from './sign-in-up/sign-in-up.component';
 import { ExplorePageComponent } from './explore-page/explore-page.component';
 import { AppBarComponent } from './explore-page/app-bar/app-bar.component';
 import { FiltersComponent } from './explore-page/filters/filters.component';
@@ -24,7 +23,6 @@ import { RegistrationComponent } from './registration/registration.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SignInUpComponent,
     ExplorePageComponent,
     AppBarComponent,
     FiltersComponent,
