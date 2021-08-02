@@ -18,6 +18,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interseptor';
 import { fakeBackendProvider } from './helpers/fake-backend';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { fakeBackendProvider } from './helpers/fake-backend';
     AppBarComponent,
     FiltersComponent,
     GameCardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
