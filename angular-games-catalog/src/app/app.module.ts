@@ -19,6 +19,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interseptor';
 import { fakeBackendProvider } from './helpers/fake-backend';
 import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LoginComponent } from './login/login.component';
     FiltersComponent,
     GameCardComponent,
     LoginComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,

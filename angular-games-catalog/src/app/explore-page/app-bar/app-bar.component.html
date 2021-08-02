@@ -17,6 +17,7 @@
       <a *ngIf="isAuth" class="user-link" routerLink="/user:id">{{currentUser.userName}}</a>
       <a *ngIf="isAuth" class="logout-link" routerLink="/explore" (click)="logout()">Logout</a>
       <a *ngIf="!isAuth" class="login-link" routerLink="/login">Login</a>
+      <a *ngIf="!isAuth" class="login-link" routerLink="/registration">Create Account</a>
     </div>
   </nav>
 </div>

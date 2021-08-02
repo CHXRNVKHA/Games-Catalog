@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="sign-in-up">
+    <div class="switch-buttons">
+      <h2 class="switch-buttons__button">JOIN US!</h2>
+    </div>
+    <form [formGroup]="form" class="form">
+      <div class="name">
+        <label class="input-label" for="name"><b>Name</b></label>
+        <br>
+        <input class="input" type="text" name="name" formControlName="name">
+      </div>
+      <div class="email">
+        <label class="input-label" for="email"><b>Email Address</b></label>
+        <br>
+        <input class="input" type="email" name="email" formControlName="email">
+      </div>
+      <div class="password">
+        <label class="input-label" for="password"><b>Password</b></label>
+        <br>
+        <input class="input" type="password" name="password" formControlName="password">
+      </div>
+      <button class="submit" type="button" (click)="registry()">Join Now</button>
+    </form>
+    <p class="explain">- - - - - - - - - - - - - Register With - - - - - - - - - - - - -</p>
+    <div class="social-media">
+      <a class="social-media__item social-media__item_facebook" href="#">Facebook</a>
+      <a class="social-media__item social-media__item_google" href="#">Google+</a>
+      <a class="social-media__item social-media__item_twitter" href="#">Twitter</a>
+    </div>
+  </div>
+</div>
+
