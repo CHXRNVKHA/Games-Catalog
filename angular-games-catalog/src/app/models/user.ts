@@ -1,6 +1,6 @@
 export class User {
-  id: number = -1;
-  userName: string = 'def';
-  email: string = 'defmail'
+  id: number;
+  userName: string;
+  email: string;
   token?: string;
 }
