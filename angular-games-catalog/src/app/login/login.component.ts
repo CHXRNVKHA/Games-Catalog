@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -11,13 +11,17 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  public hide = true;
+  password = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
   public isSignIn: boolean = true;
   public form: FormGroup;
   loading = false;
   submitted = false;
   error = '';
 
-  constructor (private fb:FormBuilder,
+  constructor (
+    private fb:FormBuilder,
     private authenticationService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router
@@ -25,16 +29,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
       password: ['', Validators.required]
     });
   }
-
-  get f() { return this.form.controls; }
+  
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
 
   login() {
-    this.authenticationService.login(this.f.email.value, this.f.password.value)
+    this.loading = true;
+    this.authenticationService.login(this.email.value, this.password.value)
     .pipe(first())
     .subscribe({
         next: () => {

@@ -4,17 +4,21 @@
       <h2 class="switch-buttons__button">SIGN IN</h2>
     </div>
     <form [formGroup]="form" class="form">
-      <div class="email">
-        <label class="input-label" for="email"><b>Email Address</b></label>
-        <br>
-        <input class="input" type="email" name="email" formControlName="email">
-      </div>
-      <div class="password">
-        <label class="input-label" for="password"><b>Password</b></label>
-        <br>
-        <input class="input" type="password" name="password" formControlName="password">
-      </div>
-      <button class="submit" type="button" [disabled]="loading" (click)="login()">Sign In</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="yourmail@example.com" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-error *ngIf="error">{{error}}</mat-error>
+      <br>
+      <button mat-raised-button color="warn" type="submit" [disabled]="loading" (click)="login()">Sign In</button>
       <a class="restore-pass" href="#">Forgot Password?</a>
     </form>
     <p class="explain">- - - - - - - - - - - - - Sign In With - - - - - - - - - - - - -</p>
