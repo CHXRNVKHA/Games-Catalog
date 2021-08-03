@@ -25,6 +25,13 @@ export class GameService {
     return this.http.get<Game[]>(this.gamesUrl);
   }
 
+  public getGame(id: number): Observable<Game> {
+    const url = `${this.gamesUrl}/${id}`;
+    return this.http.get<Game>(url).pipe(
+      
+    );
+  }
+
   public searchGames(term: string): Observable<Game[]> {
     if (!term.trim()) {
       return of([]);

@@ -24,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { GameSearchComponent } from './explore-page/filters/game-search/game-search.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { GameSearchComponent } from './explore-page/filters/game-search/game-sea
     LoginComponent,
     RegistrationComponent,
     GameSearchComponent,
+    GameDetailComponent,
   ],
   imports: [
     BrowserModule,
