@@ -10,8 +10,8 @@ import { User } from '../../models/user';
   styleUrls: ['./app-bar.component.css']
 })
 export class AppBarComponent implements OnInit {
-  isAuth: boolean = false;
-  currentUser: User = {
+  public isAuth: boolean = false;
+  public currentUser: User = {
     id: -1,
     userName: 'defname',
     email: 'defmail',
@@ -28,7 +28,7 @@ export class AppBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout() {
+  public logout(): void {
     this.authenticationService.logout();
     this.isAuth = false;
   }

@@ -13,9 +13,9 @@ import { first } from 'rxjs/operators';
 export class RegistrationComponent implements OnInit {
   public isSignIn: boolean = true;
   public form: FormGroup;
-  loading = false;
-  submitted = false;
-  error = '';
+  public loading = false;
+  public submitted = false;
+  public error = '';
 
   constructor (private fb:FormBuilder,
                private authenticationService: AuthenticationService,
@@ -30,7 +30,7 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  get f() { return this.form.controls; }
+  public get f() { return this.form.controls; }
 
   registry() {
     this.authenticationService.registry(this.f.email.value, this.f.password.value, this.f.name.value)

@@ -20,7 +20,7 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login (email: string, password: string) {
+    public login (email: string, password: string): Observable<any> {
         return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { email, password })
             .pipe(map(user => {
                 console.log(JSON.stringify(user));
@@ -30,11 +30,11 @@ export class AuthenticationService {
             }));
     }
 
-    registry (email:string, password: string, name: string) {
+    public registry (email:string, password: string, name: string): Observable<any> {
         return this.http.post<any>(`${environment.apiUrl}/users/registry`, { email, password, name });
     }
 
-    logout() {
+    public logout(): void {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(new User());
     }
