@@ -29,8 +29,7 @@ export class GameService {
     if (!term.trim()) {
       return of([]);
     }
-    const options = term ? { params: new HttpParams().set('name', term) } : {};
-    return this.http.get<Game[]>(`${environment.apiUrl}/games`, options).pipe(
+    return this.http.get<Game[]>(`${this.gamesUrl}/?name=${term}`).pipe(
       tap()
     );
   }

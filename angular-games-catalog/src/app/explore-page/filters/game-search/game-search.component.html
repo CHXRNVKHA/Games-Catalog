@@ -1,0 +1,10 @@
+<form class="filters-form">
+    <input #searchBox class="search-bar" type="search" placeholder="Search Games" (input)="search(searchBox.value)">
+</form>
+<ul class="search-result">
+    <li *ngFor="let game of games$ | async" >
+      <a routerLink="/detail/{{game.id}}">
+        {{game.name}}
+      </a>
+    </li>
+</ul>

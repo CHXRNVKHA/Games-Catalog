@@ -23,6 +23,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { GameSearchComponent } from './explore-page/filters/game-search/game-search.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
     GameCardComponent,
     LoginComponent,
     RegistrationComponent,
+    GameSearchComponent,
   ],
   imports: [
     BrowserModule,
