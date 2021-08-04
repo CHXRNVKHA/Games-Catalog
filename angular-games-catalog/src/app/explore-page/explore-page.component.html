@@ -1,26 +1,28 @@
 <app-app-bar></app-app-bar>
 <app-filters></app-filters>
 <div class="game-list">
-  <div class="container" *ngFor="let game of games">
-    <div class="header">
-    <div class="raiting">{{game.rating}}</div>
-    <div class="info">
-      <span class="name">{{game.name}}</span>
-      <span class="date">{{game.date}}</span>
-    </div>
-    </div>
-    <img class="game-image" src="{{game.imageUrl}}" alt="game-img" width="100%" height="400px">
-    <p class="description">{{game.description}}</p>
-    <div class="social-media">
-    <button class="like">
-      <img class="like__image" alt="like">
-    </button>
-    <button class="share">
-      <img class="share__image" alt="share">
-    </button>
-    <button class="more">
-      <img class="more_image" alt="more">
-    </button>
-    </div>
-  </div>
+  <mat-card class="game-card" *ngFor="let game of games">
+    <mat-card-header>
+      <div mat-card-avatar class="raiting">{{game.raiting}}</div>
+      <mat-card-title>{{game.name}}</mat-card-title>
+      <mat-card-subtitle>{{game.date}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{game.imageUrl}}" alt="game image" width="100%" height="400px">
+    <mat-card-content>
+      <p class="description">{{game.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button color="primary">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button color="primary">
+        <mat-icon>share</mat-icon>
+      </button>
+      <a routerLink="/detail/{{game.id}}">
+        <button mat-icon-button color="primary">
+          <mat-icon>more</mat-icon>
+        </button>
+      </a>
+    </mat-card-actions>
+  </mat-card>
 </div>

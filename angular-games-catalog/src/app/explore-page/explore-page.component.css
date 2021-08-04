@@ -13,3 +13,16 @@
   word-wrap: break-word;
   word-break: break-all;
 }
+
+.game-card {
+  width: 20%;
+  margin-top: 2%;
+}
+
+.raiting {
+  background-color: coral;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

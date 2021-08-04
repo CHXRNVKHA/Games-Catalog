@@ -22,7 +22,9 @@ import { RegistrationComponent } from './registration/registration.component';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+
 import { GameSearchComponent } from './explore-page/filters/game-search/game-search.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 
@@ -46,6 +48,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatCardModule,
     MatButtonModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
