@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-game-detail',
@@ -23,8 +24,13 @@ export class GameDetailComponent implements OnInit {
 
   getHero(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    console.log(id);
     this.gameService.getGame(id)
       .subscribe(game => this.game = game);
     console.log(this.game);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
