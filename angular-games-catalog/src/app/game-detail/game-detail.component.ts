@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./game-detail.component.css']
 })
 export class GameDetailComponent implements OnInit {
-  game: Game | undefined;
+  public game: Game | undefined;
 
   constructor(
     private route: ActivatedRoute,

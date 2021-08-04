@@ -14,7 +14,6 @@ export class RegistrationComponent implements OnInit {
   public isSignIn: boolean = true;
   public form: FormGroup;
   public loading = false;
-  public submitted = false;
   public error = '';
 
   constructor (private fb:FormBuilder,
@@ -32,7 +31,7 @@ export class RegistrationComponent implements OnInit {
 
   public get f() { return this.form.controls; }
 
-  registry() {
+  registry(): void {
     this.authenticationService.registry(this.f.email.value, this.f.password.value, this.f.name.value)
       .pipe(first())
       .subscribe({

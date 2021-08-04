@@ -12,12 +12,11 @@ import { first } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
   public hide = true;
-  password = new FormControl('', [Validators.required]);
-  email = new FormControl('', [Validators.required, Validators.email]);
+  public password = new FormControl('', [Validators.required]);
+  public email = new FormControl('', [Validators.required, Validators.email]);
   public isSignIn: boolean = true;
   public form: FormGroup;
-  loading = false;
-  submitted = false;
+  public loading = false;
   error = '';
 
   constructor (
@@ -34,14 +33,14 @@ export class LoginComponent implements OnInit {
     });
   }
   
-  getErrorMessage() {
+  getErrorMessage(): String {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  login() {
+  login(): void {
     this.loading = true;
     this.authenticationService.login(this.email.value, this.password.value)
     .pipe(first())

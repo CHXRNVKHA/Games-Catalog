@@ -10,7 +10,7 @@ import { GameService } from 'src/app/services/game.service';
   styleUrls: ['./game-search.component.css']
 })
 export class GameSearchComponent implements OnInit {
-  games$!: Observable<Game[]>;
+  public games$!: Observable<Game[]>;
   private searchTerms = new Subject<string>();
 
   constructor(private gameService: GameService) { }
