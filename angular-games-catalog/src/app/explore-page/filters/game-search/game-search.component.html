@@ -1,0 +1,16 @@
+<form class="filters-form">
+  <input  #searchBox
+          class="search-bar" 
+          type="search" 
+          placeholder="Search Games" 
+          (input)="search(searchBox.value)"
+          [matAutocomplete]="auto"
+          (keydown.enter)="findGame(searchBox.value)">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="openGameDetail($event.option.value)">
+    <mat-option *ngFor="let game of games$ | async" [value]="game.id">
+      <a class="game" routerLink="/detail/{{game.id}}">
+        {{game.name}}
+      </a>
+    </mat-option>
+  </mat-autocomplete>
+</form>

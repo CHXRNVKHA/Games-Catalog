@@ -7,14 +7,21 @@
         </a>
       </li>
       <li class="nav-list">
-        <a class="nav-list__item_link" href="#">DISCOVERY</a>
+        <a class="nav-list__item_link" routerLink="">DISCOVERY</a>
       </li>
       <li class="nav-list">
-        <a class="nav-list__item_link" href="#">MY GAMES</a>
+        <a *ngIf="isAuth" class="nav-list__item_link" routerLink="">MY GAMES</a>
       </li>
     </ul>
     <div class="autorization">
-      <a class="user-link" routerLink="/user:id">USER1</a>
+      <a *ngIf="isAuth; else login" class="user-link" routerLink="/user:id">{{currentUser.userName}}</a>
+      <ng-template #login>
+        <a class="login-link" routerLink="/login">Login</a>
+      </ng-template> 
+      <a *ngIf="isAuth; else signUp" class="logout-link" routerLink="/explore" (click)="logout()">Logout</a>
+      <ng-template #signUp>
+        <a class="login-link" routerLink="/registration">Create Account</a>
+      </ng-template> 
     </div>
   </nav>
 </div>

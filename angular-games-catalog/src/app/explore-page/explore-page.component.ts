@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { Game } from '../game';
+import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { GameService } from '../services/game.service';
   styleUrls: ['./explore-page.component.css']
 })
 export class ExplorePageComponent implements OnInit {
-  games: Game[] = [];
+  public games$: Observable<Game[]>;
 
   constructor(private gameService: GameService) { }
 
@@ -17,9 +18,7 @@ export class ExplorePageComponent implements OnInit {
     this.getGames();
   }
 
-  getGames(): void {
-    this.gameService.getGames()
-    .subscribe(games => this.games = games);
+  public getGames(): void {
+    this.games$ = this.gameService.getGames();
   }
-
 }

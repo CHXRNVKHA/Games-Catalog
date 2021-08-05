@@ -2,7 +2,7 @@ export interface Game {
   id: number;
   name: string;
   date: string;
-  rating: number;
+  raiting: number;
   description: string
   imageUrl: string;
 }
