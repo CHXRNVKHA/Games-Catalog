@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   public isSignIn: boolean = true;
   public form: FormGroup;
   public loading = false;
-  error = '';
+  public error = '';
 
   constructor (
     private fb:FormBuilder,
@@ -36,14 +36,16 @@ export class LoginComponent implements OnInit {
     });
   }
   
-  getErrorMessage(): String {
+  public getErrorMessage(): any {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    if (this.email.hasError('email')) {
+      return 'Not a valid email';
+    }
   }
 
-  login(): void {
+  public login(): void {
     this.loading = true;
     this.authenticationService.login(this.email.value, this.password.value)
     .pipe(first())

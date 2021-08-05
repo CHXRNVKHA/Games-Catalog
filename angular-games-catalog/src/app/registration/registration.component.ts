@@ -32,7 +32,7 @@ export class RegistrationComponent implements OnInit {
 
   public get f() { return this.form.controls; }
 
-  registry(): void {
+  public registry(): void {
     this.authenticationService.registry(this.f.email.value, this.f.password.value, this.f.name.value)
       .pipe(first())
       .subscribe({
