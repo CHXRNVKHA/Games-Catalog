@@ -21,9 +21,7 @@ export class GameService {
 
   public getGame(id: number): Observable<Game> {
     const url = `${this.gamesUrl}/${id}`;
-    return this.http.get<Game>(url).pipe(
-      
-    );
+    return this.http.get<Game>(url);
   }
 
   public searchGames(term: string): Observable<Game[]> {

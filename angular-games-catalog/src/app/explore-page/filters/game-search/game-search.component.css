@@ -32,6 +32,11 @@
   color: black;
 }
 
+.game {
+  text-decoration: none;
+  color: black;
+}
+
 .search-result li {
   list-style: none;
 }

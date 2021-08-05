@@ -8,7 +8,7 @@ import { Game } from '../models/game';
 export class InMemoryDataService {
   public createDb() {
     const games = [
-      { id: 1, name: 'Uncharted ',  date:'2016 May 10', raiting: 94.4, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend arcu in magna porttitor egestas ut et elit.', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
+      { id: 1, name: 'Uncharted',  date:'2016 May 10', raiting: 94.4, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend arcu in magna porttitor egestas ut et elit.', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
       { id: 2, name: 'Uncharted1',  date:'2016 May 10', raiting: 94.4, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend arcu in magna porttitor egestas ut et elit.', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
       { id: 3, name: 'Uncharted2',  date:'2016 May 10', raiting: 94.4, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend arcu in magna porttitor egestas ut et elit.', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},
       { id: 4, name: 'Uncharted3',  date:'2016 May 10', raiting: 94.4, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend arcu in magna porttitor egestas ut et elit.', imageUrl: '.../../../assets/images/Uncharted_4_cover.jpg'},

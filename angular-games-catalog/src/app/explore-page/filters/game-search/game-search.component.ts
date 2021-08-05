@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable, Subject, Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, find } from 'rxjs/operators';
 
 import { Game } from 'src/app/models/game';
 import { GameService } from 'src/app/services/game.service';
@@ -12,11 +14,15 @@ import { GameService } from 'src/app/services/game.service';
 })
 export class GameSearchComponent implements OnInit {
   public games$: Observable<Game[]>;
+  public games: Game[];
+  public gamesSubscribe: Subscription;
   private searchTerms = new Subject<string>();
 
-  constructor(private gameService: GameService) { }
+  constructor(
+    private gameService: GameService,
+    private router: Router) { }
 
-  search (term: string): void {
+  public search (term: string): void {
     this.searchTerms.next(term);
   }
 
@@ -26,5 +32,19 @@ export class GameSearchComponent implements OnInit {
       distinctUntilChanged(),
       switchMap((term: string) => this.gameService.searchGames(term)),
     );
+    this.gamesSubscribe = this.gameService.getGames().subscribe(games => this.games = games);
+  }
+
+  ngOnDestroy(): void {
+    this.gamesSubscribe.unsubscribe();
+  }
+
+  public openGameDetail(gameId: number): void {
+    this.router.navigateByUrl(`/detail/${gameId}`);
+  }
+
+  public findGame(gameName: string): void {
+    const game = this.games.find(game => game.name.toLowerCase() === gameName.toLowerCase());
+    this.router.navigateByUrl(`/detail/${game?.id}`);
   }
 }
