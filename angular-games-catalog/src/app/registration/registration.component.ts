@@ -30,10 +30,10 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  public get f() { return this.form.controls; }
+  public get formControls() { return this.form.controls; }
 
   public registry(): void {
-    this.authenticationService.registry(this.f.email.value, this.f.password.value, this.f.name.value)
+    this.authenticationService.registry(this.formControls.email.value, this.formControls.password.value, this.formControls.name.value)
       .pipe(first())
       .subscribe({
           next: () => {
