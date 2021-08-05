@@ -1,7 +1,7 @@
 <app-app-bar></app-app-bar>
 <app-filters></app-filters>
 <div class="game-list">
-  <mat-card class="game-card" *ngFor="let game of games">
+  <mat-card class="game-card" *ngFor="let game of games$ | async">
     <mat-card-header>
       <div mat-card-avatar class="raiting">{{game.raiting}}</div>
       <mat-card-title>{{game.name}}</mat-card-title>

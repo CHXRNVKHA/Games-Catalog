@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
+import { Observable, Subscription } from 'rxjs';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { GameService } from '../services/game.service';
 })
 export class GameDetailComponent implements OnInit {
   public game: Game;
+  public subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,18 +23,20 @@ export class GameDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getHero();
+    this.getGame();
   }
 
-  getHero(): void {
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  private getGame(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    console.log(id);
-    this.gameService.getGame(id)
+    this.subscription = this.gameService.getGame(id)
       .subscribe(game => this.game = game);
-    console.log(this.game);
   }
 
-  goBack(): void {
+  public goBack(): void {
     this.location.back();
   }
 }
