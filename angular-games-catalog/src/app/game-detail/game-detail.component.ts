@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
-import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-game-detail',
