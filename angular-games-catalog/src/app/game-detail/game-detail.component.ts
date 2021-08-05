@@ -12,7 +12,7 @@ import { GameService } from '../services/game.service';
   styleUrls: ['./game-detail.component.css']
 })
 export class GameDetailComponent implements OnInit {
-  public game: Game | undefined;
+  public game: Game;
 
   constructor(
     private route: ActivatedRoute,
