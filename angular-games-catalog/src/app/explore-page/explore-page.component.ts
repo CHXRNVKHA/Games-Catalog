@@ -21,8 +21,12 @@ export class ExplorePageComponent implements OnInit {
     this.getGames();
   }
 
+  ngOnDestroy(): void {
+    this.gamesSubscribe.unsubscribe();
+  }
+
   public getGames(): void {
-    this.gameService.getGames().subscribe(games => this.games = games);
+    this.gamesSubscribe = this.gameService.getGames().subscribe(games => this.games = games);
   }
 
   public incrementLimit(): void {
