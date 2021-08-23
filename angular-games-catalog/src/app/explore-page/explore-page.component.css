@@ -26,3 +26,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.more-button {
+  display: flex;
+  justify-content: center;
+  padding: 3% 0;
+}
