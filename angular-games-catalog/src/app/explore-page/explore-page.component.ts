@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
@@ -11,6 +11,9 @@ import { GameService } from '../services/game.service';
 })
 export class ExplorePageComponent implements OnInit {
   public games$: Observable<Game[]>;
+  public games: Game[];
+  public gamesSubscribe: Subscription;
+  public limit = 8; 
 
   constructor(private gameService: GameService) { }
 
@@ -18,7 +21,15 @@ export class ExplorePageComponent implements OnInit {
     this.getGames();
   }
 
+  ngOnDestroy(): void {
+    this.gamesSubscribe.unsubscribe();
+  }
+
   public getGames(): void {
-    this.games$ = this.gameService.getGames();
+    this.gamesSubscribe = this.gameService.getGames().subscribe(games => this.games = games);
+  }
+
+  public incrementLimit(): void {
+    this.limit += 4;
   }
 }

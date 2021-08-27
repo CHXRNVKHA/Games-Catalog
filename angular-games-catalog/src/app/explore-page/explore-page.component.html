@@ -1,10 +1,10 @@
 <app-app-bar></app-app-bar>
 <app-filters></app-filters>
 <div class="game-list">
-  <mat-card class="game-card" *ngFor="let game of games$ | async">
+  <mat-card class="game-card" *ngFor="let game of games.slice(0, limit)">
     <mat-card-header>
       <div mat-card-avatar class="raiting">{{game.raiting}}</div>
-      <mat-card-title>{{game.name}}</mat-card-title>
+      <mat-card-title><a class="game-link" routerLink="/detail/{{game.id}}">{{game.name}}</a></mat-card-title>
       <mat-card-subtitle>{{game.date}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="{{game.imageUrl}}" alt="game image" width="100%" height="400px">
@@ -26,3 +26,7 @@
     </mat-card-actions>
   </mat-card>
 </div>
+<div *ngIf="games" class="more-button">
+  <button mat-raised-button (click)="incrementLimit()">Show More</button>
+</div>
+

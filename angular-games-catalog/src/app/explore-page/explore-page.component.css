@@ -26,3 +26,18 @@
   align-items: center;
   justify-content: center;
 }
+
+.more-button {
+  display: flex;
+  justify-content: center;
+  padding: 3% 0;
+}
+
+.game-link {
+  text-decoration: none;
+  color: black;
+}
+
+.game-link:hover {
+  opacity: 0.5;
+}
